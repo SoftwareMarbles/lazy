@@ -143,7 +143,8 @@ const addEndpoints = (app, options) => {
                     .groupBy('ruleId')
                     .mapValues((warnings, ruleId) => {
                         if (!_.isNumber(maxWarningsPerRule) ||
-                            warnings.length <= maxWarningsPerRule) {
+                            warnings.length <= maxWarningsPerRule ||
+                            ruleId === 'undefined') {
                             return warnings;
                         }
 
