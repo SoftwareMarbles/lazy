@@ -145,7 +145,7 @@ config:
     max_warnings_per_file: 20 # optional value instructing lazy to never send more than this number of warnings per file, applied after max_warnings_per_rule
 engines: # each of these engines can be left out and other custom or official engines may be added
     eslint:
-        image: ierceg/lazy-eslint-engine:latest
+        image: getlazy/eslint-engine:latest
         boot_wait: true # optional, defaults to true, flag instructing lazy to wait for engine's boot process to finish
         boot_timeout: 120 # optional timeout to wait for engine to boot
         meta: {} # optional metadata for the engine, if not provided lazy queries the engine for it
@@ -153,11 +153,11 @@ engines: # each of these engines can be left out and other custom or official en
             - MODE=strict # for example, not real
         ~include: eslint-rules.yaml # optional metaclause that includes the specified YAML file and merges its content with engine configuration
     stylelint:
-        image: ierceg/lazy-stylelint-engine:latest
+        image: getlazy/stylelint-engine:latest
     tidy-html:
-        image: ierceg/lazy-tidy-html-engine:latest
+        image: getlazy/tidy-html-engine:latest
     github-access:
-        image: ierceg/lazy-github-access-engine:latest
+        image: getlazy/github-access-engine:latest
         import_env: # optional list of environment variables to import from lazy environment into engine environment
             - GITHUB_CLIENT_ID
             - GITHUB_CLIENT_SECRET
