@@ -6,11 +6,15 @@ build:
 		--build-arg NPM_TOKEN=${NPM_TOKEN} \
 		-t getlazy/lazy:$(PACKAGE_VERSION) \
 		-t getlazy/lazy:latest \
+		-t us.gcr.io/decent-terra-156222/lazy:$(PACKAGE_VERSION) \
+		-t us.gcr.io/decent-terra-156222/lazy:latest \
 		.
 
 push:
 	docker push getlazy/lazy:$(PACKAGE_VERSION)
 	docker push getlazy/lazy:latest
+	gcloud docker -- push us.gcr.io/decent-terra-156222/lazy:$(PACKAGE_VERSION)
+	gcloud docker -- push us.gcr.io/decent-terra-156222/lazy:latest
 
 test:
 	docker run -it --rm \
